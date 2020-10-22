@@ -1,0 +1,16 @@
+.card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background-color: #fefefe;
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+  &-title {
+    color: var(--color-accent-3);
+    @include typeScaleH4();
+  }
+  &.full-link {
+    @include hov() {
+      box-shadow: var(--shadow-dark);
+    }
+  }
+}

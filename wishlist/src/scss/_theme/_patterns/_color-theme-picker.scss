@@ -1,0 +1,112 @@
+.color-theme-picker {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  position: relative;
+  transition: 
+    background-color var(--transition),
+    height var(--transition),
+    color var(--transition);
+
+  .ctp-opener {
+    @include typeScaleH4;
+    padding: calc(.5rem * var(--line-height));
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    transition: 
+      background-color var(--transition),
+      color var(--transition),
+      box-shadow var(--transition);
+    @include hov() {
+      background-color: var(--color-secondary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+  }
+  .ctp-list {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 85%;
+    transform: translateX(-50%);
+    padding: 4.5rem 0 calc(.5rem * var(--line-height));
+    border-radius: 2rem;
+    list-style-type: none;
+    text-align: center;
+    background-color: #fff;
+    z-index: -1;
+    // opacity: 0;
+    box-shadow: var(--shadow);
+    clip-path: polygon(-10% -10%, 100% -10%, 100% -5%, -10% -5%);
+    transition:
+      clip-path var(--transition),
+      opacity var(--transition);
+    @include typeScaleSmall;
+    li:not(:last-child) {
+      margin-bottom: calc(.5rem * var(--line-height));
+    }
+    .active .ctp-circle::after {
+      opacity: 1;
+    }
+    .ctp-label {
+      display: none;
+    }
+    .ctp-circle {
+      position: relative;
+      width: calc(.875rem * var(--line-height));
+      height: calc(.875rem * var(--line-height));
+      border-radius: 50%;
+      display: inline-block;
+      &::after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 150%;
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity var(--transition);
+        z-index: -1;
+      }
+      &.default {
+        background-color: #394A59;
+      }
+      &.earth-tones {
+        background-color: #5E593D;
+      }
+      &.retro {
+        background-color: #672E8C;
+      }
+      &:hover::after,
+      &:focus::after {
+        opacity: .5;
+      }
+    }
+  }
+  @include hov() {
+  //   background-color: #fff;
+    background-color: var(--color-secondary);
+  }
+  &.open {
+    .ctp-opener {
+      background-color: var(--color-secondary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    // color: var(--color-primary);
+      // background-color: var(--color-secondary);
+    // @include hov() {
+    //   background-color: transparent;
+    // }
+    .ctp-list {
+      clip-path: polygon(-10% -10%, 110% -10%, 100% 110%, -10% 110%);
+    }
+  }
+}
+
+

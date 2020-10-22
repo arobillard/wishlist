@@ -1,0 +1,18 @@
+[class^="embed"] {
+  position: relative;
+  .embed-item,
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    object-fit: cover;
+  }
+}
+
+.embed-4by3 {
+  padding-top: 75%;
+}

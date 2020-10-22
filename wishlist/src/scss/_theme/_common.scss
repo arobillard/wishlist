@@ -1,0 +1,154 @@
+:root {
+  /* Colors */
+  --color-primary: #394A59;
+  --color-primary-pale: #f0f3f7;
+  --color-primary-light: #59758d;
+  --color-secondary: #36BF7F;
+  --color-secondary-light: #75d3a7;
+  --color-secondary-pale: #cef8e5;
+  --color-accent-1: #D9BC9A;
+  --color-accent-1-light: #dfcbb4;
+  --color-accent-2: #F28B66;
+  --color-accent-2-light: #f1a589;
+  --color-accent-3: #D96666;
+  --color-accent-3-light: #df8787;
+  --color-text: #222;
+  --color-bg: #fff;
+  --color-grey-pale: #f2f2f2;
+
+  /* Typography */
+  --font-primary: Roboto, 'Open Sans', sans-serif;
+  --line-height: 1.3;
+  --type-scale: 1.175;
+  --type-responsive-growth: 1;
+
+  /* Transition */
+  --transition: .2s;
+  --snap: cubic-bezier(1,0,.75,1);
+  
+  /* Recurring Design */
+  --radius: .25em;
+  --shadow: 0px 2px 5px rgba(0, 0, 0, .15);
+  --shadow-dark: 0px 2px 5px rgba(0, 0, 0, .25);
+  --shadow-light: 0px 2px 5px rgba(0, 0, 0, .05);
+}
+
+.earth-tones {
+  --color-primary: #5E593D;
+  --color-primary-light: #8a825a;
+  --color-primary-pale: #f1eedb;
+  --color-secondary: #9B9C7E;
+  --color-secondary-light: #c1c29e;
+  --color-secondary-pale: #e5e6d2;
+  --color-accent-1: #DDD1B3;
+  --color-accent-1-light: #f3e6c6;
+  --color-accent-1-pale: #f1ede3;
+  --color-accent-2: #737A60;
+  --color-accent-2-light: #a1aa87;
+  --color-accent-2-pale: #e0e6d1;
+  --color-accent-3: #A59258;
+  --color-accent-3-light: #ceb66e;
+  --color-accent-3-pale: #eee8d6;
+}
+
+.retro {
+  --color-primary: #672E8C;
+  --color-primary-light: #813bb1;
+  --color-primary-pale: #e4d2f0;
+  --color-secondary: #D9483B;
+  --color-secondary-light: #f75344;
+  --color-secondary-pale: #f7cdc9;
+  --color-accent-1: #A63387;
+  --color-accent-1-light: #d444ae;
+  --color-accent-1-pale: #f3d4eb;
+  --color-accent-2: #BF3F61;
+  --color-accent-2-light: #e94f78;
+  --color-accent-2-pale: #eed4db;
+  --color-accent-3: #F2A25C;
+  --color-accent-3-light: #f0b078;
+  --color-accent-3-pale: #f7ebe0;
+}
+
+// @media (prefers-color-scheme: dark) {
+  
+//   :root {
+//     --color-text: #fff;
+//     --color-bg: #394A59;
+//     --color-primary: #fff;
+//   }
+
+// }
+
+html {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+@media only screen and (min-width: 38em) {
+
+  :root {
+    --type-responsive-growth: 1.1;
+    --type-scale: 1.25;
+  } 
+
+}
+
+@media only screen and (min-width: 60em) {
+
+  :root {
+    --type-responsive-growth: 1.2;
+    --line-height: 1.4;
+  } 
+
+}
+
+@media only screen and (min-width: 90em) {
+
+  :root {
+    --type-responsive-growth: 1.3;
+    --line-height: 1.5;
+  } 
+
+}
+
+.click-to-copy {
+  // position: relative;
+  &::after {
+    content: 'content_copy';
+    font-family: "Material Icons";
+    position: absolute;
+    right: 0;
+    top: 0;
+    // transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    @include typeScaleH5();
+  }
+  &.copied::after {
+    content: 'check_circle_outline';
+    color: var(--color-secondary);
+    opacity: 1;
+    transition: opacity 2s;
+  }
+  &.copied.transition-out::after {
+    opacity: 0;
+  }
+  &:hover {
+    cursor: pointer;
+    &::after {
+     opacity: 1;
+    }
+  }
+}
+
+.full-link {
+  position: relative;
+  a::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,92 @@
+html {
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote,
+details,
+hr,
+fieldset,
+legend,
+pre,
+table,
+caption,
+menu {
+  margin: 0 0 calc(1rem * var(--line-height));
+}
+
+.headline-1, h1 {
+  @include typeScaleH1();
+}
+
+.headline-2, h2 {
+  @include typeScaleH2();
+  font-weight: 600;
+}
+
+.headline-3, h3 {
+  @include typeScaleH3();
+}
+
+.headline-4, h4 {
+  @include typeScaleH4();
+}
+
+.headline-5, h5 {
+  @include typeScaleH5();
+}
+
+h6, body {
+  @include typeScaleBody();
+}
+
+a {
+  color: var(--color-accent-3);
+  transition:
+  transform var(--transition),
+  opacity var(--transition),
+  background-color var(--transition),
+  border-color var(--transition),
+  color var(--transition);
+  @include hov() {
+    color: var(--color-secondary);
+  }
+}
+
+pre,
+code {
+  @include typeScaleSmall();
+}
+
+/* - - - - - - - - - - Text Manipulation - - - - - - - - - - */
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.weight-bold {
+  font-weight: 800;
+}
+
+.weight-medium {
+  font-weight: 600;
+}
+
+.weight-regular {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}

@@ -1,0 +1,114 @@
+/* - - - - - - - - - - Wrappers - - - - - - - - - - */
+
+[class^="wrapper"] {
+  margin: 0 auto;
+  max-width: 65em;
+  width: 100%;
+}
+
+.wrapper-text {
+  max-width: 40em;
+}
+
+.wrapper-text-no-center {
+  @extend .wrapper-text;
+  margin: 0;
+}
+
+/* - - - - - - - - - - Display & Position - - - - - - - - - - */
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.static {
+  position: static;
+}
+
+.s-0 {
+  display: none;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .m-0 {
+    display: none;
+  }
+
+  .m-1 {
+    display: initial;
+  }
+
+}
+
+/* - - - - - - - - - - Widths - - - - - - - - - - */
+
+.w-1-4 {
+  width: 25%;
+}
+
+.w-1-2 {
+  width: 50%;
+}
+
+.w-3-4 {
+  width: 75%;
+}
+
+.w-1 {
+  width: 100%;
+}
+
+/* - - - - - - - - - - Grids & Cells - - - - - - - - - - */
+
+main {
+  margin: 3.5rem 0;
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+  // column-gap: 1rem;
+  // align-items: flex-start;
+}
+
+* {
+  grid-column: 2 / span 7;
+}
+
+.full-width {
+  grid-column: 1 / span 9;
+}
+
+/* --- Mobile --- */
+
+.col-2-center {
+  grid-column: 4 / span 3!important;
+}

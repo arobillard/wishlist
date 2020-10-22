@@ -1,0 +1,83 @@
+@mixin bgBasic() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin hov() {
+  &:hover, &:focus {
+
+    @content;
+
+  }
+}
+
+@mixin typeScaleH1 {
+  font-size: calc(
+    1rem
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleH2 {
+  font-size: calc(
+    1rem
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleH3 {
+  font-size: calc(
+    1rem
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleH4 {
+  font-size: calc(
+    1rem
+    * var(--type-scale)
+    * var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleH5 {
+  font-size: calc(
+    1rem
+    * var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleBody {
+  font-size: calc(
+    1rem
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleSmall {
+  font-size: calc(
+    1rem
+    / var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin typeScaleExtraSmall {
+  font-size: calc(
+    1rem
+    / var(--type-scale)
+    / var(--type-scale)
+    * var(--type-responsive-growth));
+}
+
+@mixin borderLeft($color) {
+  border-left: calc(.5rem * var(--line-height)) solid var(--color-#{$color});
+}

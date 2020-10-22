@@ -1,0 +1,60 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon-label {
+  display: inline-block;
+  vertical-align: middle;
+  &.hidden {
+    display: none;
+  }
+}
+
+.i-1-2 {
+  width: calc(.5rem * var(--line-height));
+  height: calc(.5rem * var(--line-height));
+}
+
+.i-1-4 {
+  width: calc(.25rem * var(--line-height));
+  height: calc(.25rem * var(--line-height));
+}
+
+.i-3-4 {
+  width: calc(.75rem * var(--line-height));
+  height: calc(.75rem * var(--line-height));
+}
+
+.i-1 {
+  width: calc(1rem * var(--line-height));
+  height: calc(1rem * var(--line-height));
+}
+
+.i-1-1-2 {
+  width: calc(1.5rem * var(--line-height));
+  height: calc(1.5rem * var(--line-height));
+}
+
+.i-1-1-4 {
+  width: calc(1.25rem * var(--line-height));
+  height: calc(1.25rem * var(--line-height));
+}
+
+.i-1-3-4 {
+  width: calc(1.75rem * var(--line-height));
+  height: calc(1.75rem * var(--line-height));
+}
+
+.i-2 {
+  width: calc(2rem * var(--line-height));
+  height: calc(2rem * var(--line-height));
+}
+
+.i-material {
+  font-family: "Material Icons"!important;
+}

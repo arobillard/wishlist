@@ -1,0 +1,43 @@
+.banner-hero {
+  height: 95vh;
+  max-height: 900px;
+  background: linear-gradient(130deg, var(--color-primary-pale) 50%, rgba(255,255,255,1) 50%);
+  display: flex;
+  align-items: center;
+  .headline {
+    @include typeScaleH1();
+    font-weight: 600;
+  }
+  .byline {
+    @include typeScaleH4();
+  }
+  @media only screen and (min-width: 25em) {
+    background: linear-gradient(140deg, var(--color-primary-pale) 50%, rgba(255,255,255,1) 50%);
+  }
+  @media only screen and (min-width: 38em) {
+    background: linear-gradient(150deg, var(--color-primary-pale) 50%, rgba(255,255,255,1) 50%);
+  }
+  @media only screen and (min-width: 60em) {
+    background: linear-gradient(160deg, var(--color-primary-pale) 50%, rgba(255,255,255,1) 50%);
+    .banner-content {
+      display: grid;
+      grid-template-columns: 66.6666% 33.3333%;
+      grid-auto-rows: auto;
+      column-gap: calc(1rem * var(--line-height));
+      grid-template-areas:
+        "headline ."
+        "byline ."
+        "btn .";
+      .headline {
+        grid-area: headline;
+      }
+      .byline {
+        grid-area: byline;
+      }
+      .btn-wrap {
+        grid-area: btn;
+      }
+    }
+  
+  }
+}

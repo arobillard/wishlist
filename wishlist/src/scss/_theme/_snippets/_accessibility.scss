@@ -1,0 +1,22 @@
+a:focus,
+[tabindex="0"]:focus,
+details:focus,
+summary:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+  outline: var(--color-accent-3) auto 10px;
+  outline-offset: 0;
+  -webkit-outline-radius: var(--radius);
+}
+
+textarea:focus,
+input:focus {
+  outline: var(--color-secondary) auto 10px;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  outline-offset: 3px;
+}
