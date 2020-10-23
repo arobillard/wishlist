@@ -1,0 +1,32 @@
+.error-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  .error {
+    background-color: #a00;
+    color: #fff;
+    text-align: center;
+    padding: .5rem;
+    position: relative;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    + .error {
+      margin-top: .5rem;
+    }
+    button {
+      position: absolute;
+      top: 50%;
+      right: .5rem;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+}

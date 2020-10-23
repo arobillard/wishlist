@@ -24,10 +24,15 @@ const userSchema = new Schema({
     require: 'Please supply a last name',
     trim: true
   },
+  password: {
+    type: String,
+    require: 'Please supply a password'
+  },
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
 
+userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 userSchema.plugin(mongodbErrorHandler);
 
 module.exports = mongoose.model('User', userSchema);

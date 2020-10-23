@@ -3,7 +3,7 @@ import InputNotched from '../components/forms/InputNotched';
 import Button from '../components/buttons/Button';
 import { Link } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ setUser, errors, setErrors }) => {
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -11,8 +11,9 @@ const SignUp = () => {
       email: e.currentTarget.email.value,
       fName: e.currentTarget.fName.value,
       lName: e.currentTarget.lName.value,
+      password: e.currentTarget.password.value,
+      'password-confirm': e.currentTarget['password-confirm'].value
     }
-    console.log(newUser);
     const postUser = await fetch('/users/sign-up', {
       method: "post",
       body: JSON.stringify(newUser),
@@ -21,7 +22,19 @@ const SignUp = () => {
       }
     });
     const body = await postUser.json();
-    console.log(body);
+    if (body.err) {
+      if (body.err.length) {
+        const updatedErrors = [...errors, ...body.err];
+        setErrors(updatedErrors)
+      } else {
+        const updatedErrors = [...errors, body.err];
+        setErrors(updatedErrors)
+      }
+    } else if (body.email) {
+      setErrors([])
+      setUser(body);
+      localStorage.setItem('user', JSON.stringify(body));
+    }
   }
 
   return(

@@ -631,7 +631,6 @@ input[type=radio]:focus {
 
 .btn,
 button:not(.no-btn),
-button:not(.MuiButtonBase-root.MuiFab-root),
 .btn-group a {
   background-color: var(--color-primary);
   color: #fff;
@@ -650,8 +649,6 @@ button:not(.MuiButtonBase-root.MuiFab-root),
 .btn:hover, .btn:focus,
 button:not(.no-btn):hover,
 button:not(.no-btn):focus,
-button:not(.MuiButtonBase-root.MuiFab-root):hover,
-button:not(.MuiButtonBase-root.MuiFab-root):focus,
 .btn-group a:hover,
 .btn-group a:focus {
   background-color: var(--color-primary-light);
@@ -1863,6 +1860,39 @@ legend {
   margin-bottom: 0.5rem;
 }
 
+.error-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+.error-list .error {
+  background-color: #a00;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.error-list .error + .error {
+  margin-top: 0.5rem;
+}
+.error-list .error button {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-list .error button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 .circle-prev {
   width: 1.5rem;
   height: 1.5rem;
@@ -2039,6 +2069,42 @@ html {
 }
 .sign-in-up-wrap > div form button {
   justify-self: center;
+}
+
+.account-header {
+  margin-bottom: 2rem;
+}
+.account-header-title-wrap {
+  padding-top: 5.5rem;
+  background-color: #ACABAB;
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+}
+.account-header-title-wrap h1 {
+  grid-column: 4/span 5;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0;
+  font-size: calc( 1rem * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-responsive-growth));
+}
+.account-header-img-wrap {
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+}
+.account-header-img-wrap img {
+  width: 100%;
+  grid-column: 2/span 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -50%;
+  border: 0.125rem solid #fff;
+}
+.account-header-img-wrap .account-email {
+  grid-column: 4/span 5;
+  text-decoration: none;
+  color: var(--color-text);
+  display: block;
+  padding-top: 0.25rem;
 }
 
 /* 

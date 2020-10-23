@@ -10,7 +10,7 @@ const Header = ({ user }) => {
       <strong className="logo">Wishlist</strong>
       <NavBar />
       <AccountLink user={user} />
-      <Fab className="fab-positioning">
+      <Fab className="fab-positioning no-btn">
         <Add />
       </Fab>
     </header>

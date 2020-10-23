@@ -16,7 +16,6 @@ const InputNotched = ({ name, type, label, required, className }) => {
         id={name}
         name={name}
         type={type}
-        pattern="\S+"
         data-valid={valid}
         required={required}
       />

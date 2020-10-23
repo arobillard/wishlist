@@ -1,0 +1,35 @@
+.account-header {
+  margin-bottom: 2rem;
+  &-title-wrap {
+    padding-top: 5.5rem;
+    background-color: #ACABAB;
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+    h1 {
+      grid-column: 4 / span 5;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0;
+      @include typeScaleH2();
+    }
+  }
+  &-img-wrap {
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+    img {
+      width: 100%;
+      grid-column: 2 / span 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-top: -50%;
+      border: .125rem solid #fff;
+    }
+    .account-email {
+      grid-column: 4 /span 5;
+      text-decoration: none;
+      color: var(--color-text);
+      display: block;
+      padding-top: .25rem;
+    }
+  }
+}

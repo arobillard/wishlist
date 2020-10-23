@@ -9,7 +9,6 @@ const CardWishList = ({ link, title, itemsAvailable, itemsReceived }) => {
         <h2>{title}</h2>
         <p>{itemsAvailable} items available{itemsReceived ? ` — ${itemsReceived} items received` : ''}</p>
         <div className="card-wishlist-item-prevs">
-          <img src="/images/fab-images.svg" alt=""/>
           <span className="circle-prev"></span>
           <span className="circle-prev"></span>
           <span className="circle-prev"></span>
