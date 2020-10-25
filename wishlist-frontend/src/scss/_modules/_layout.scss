@@ -59,6 +59,11 @@
   justify-content: center;
 }
 
+.flex-v-center {
+  display: flex;
+  align-items: center;
+}
+
 @media only screen and (min-width: 38em) {
 
   .m-0 {

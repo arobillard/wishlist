@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Button from '../components/buttons/Button';
 
-const Account = ({ match, signOut, user }) => {
+const UserPage = ({ match, signOut, user }) => {
 
   useEffect(() => {
     // setUser(match.params.user);
@@ -46,4 +46,4 @@ const Account = ({ match, signOut, user }) => {
   )
 }
 
-export default Account;
+export default UserPage;

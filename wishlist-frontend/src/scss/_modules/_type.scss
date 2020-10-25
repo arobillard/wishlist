@@ -51,6 +51,10 @@ h6, body {
   @include typeScaleBody();
 }
 
+.text-small, small {
+  @include typeScaleSmall();
+}
+
 a {
   color: var(--color-accent-3);
   transition:
@@ -89,4 +93,12 @@ code {
 
 .italic {
   font-style: italic;
+}
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

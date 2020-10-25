@@ -1,31 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardWishList from '../components/CardWishList';
 import PageBanner from '../components/PageBanner';
 
-const WishListsPage = () => {
+const WishListsPage = ({ user, setPage }) => {
 
   const pageTitle = "WishLists"
+  const [lists, setLists] = useState([]);
+
+  useEffect(() => {
+    setLists(user.lists)
+    setPage({
+      current: '/wishlist'
+    })
+  }, [setPage, user.lists])
 
   return(
     <>
       <PageBanner pageTitle={pageTitle} />
-      <CardWishList
-        link="/"
-        title="Christmas 2020"
-        itemsAvailable={10}
-        itemsReceived={2}
-      />
-      <CardWishList
-        link="/"
-        title="Office Secret Santa"
-        itemsAvailable={3}
-      />
-      <CardWishList
-        link="/"
-        title="28th Birthday"
-        itemsAvailable={6}
-        itemsReceived={2}
-      />
+      {lists && lists.length ? lists.map(list => {
+        return (
+          <CardWishList
+            key={list._id}
+            data={list}
+          />
+        )
+      }) : null}
     </>
   )
 }

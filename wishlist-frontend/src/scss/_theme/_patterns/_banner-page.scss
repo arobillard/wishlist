@@ -3,8 +3,21 @@
   margin-bottom: -4rem;
   background-color: #ACABAB;
   grid-column: 1 / span 9;
+  color: #fff;
+  &.banner-page-w-desc {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  &.banner-page-w-img {
+    background-size: 100% 50%, cover;
+    background-position: left bottom, center;
+    background-repeat: no-repeat;
+  }
   h1 {
-    color: #fff;
     font-weight: normal;
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: 0;
   }
 }

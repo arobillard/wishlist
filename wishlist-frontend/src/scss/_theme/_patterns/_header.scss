@@ -6,7 +6,7 @@
     width: 100%;
     height: 3.5rem;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
     background-color: var(--color-grey-pale);
@@ -21,7 +21,7 @@
       // grid-template-columns: 1rem repeat(3, 1fr) 1rem;
       grid-template-columns: 1rem 2fr 1fr 2fr 1rem;
       grid-template-areas:
-        '. lists fab groups .';
+      '. lists fab groups .';
       background-color: var(--color-grey-pale);
       -webkit-mask: url('/images/fab-mask-oversize.svg') top center no-repeat;
       mask: url('/images/fab-mask-oversize.svg') top center no-repeat;

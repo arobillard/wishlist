@@ -1,22 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CardWishList = ({ link, title, itemsAvailable, itemsReceived }) => {
+const CardWishList = ({ data }) => {
   return(
-    <Link className="card-wishlist" to={link}>
+    <Link className="card-wishlist" to={`/wishlists/${data._id}`}>
       <div className="card-wishlist-img"></div>
       <div className="card-wishlist-content">
-        <h2>{title}</h2>
-        <p>{itemsAvailable} items available{itemsReceived ? ` — ${itemsReceived} items received` : ''}</p>
+        <h2>{data.name}</h2>
+        <p>5 items available</p>
         <div className="card-wishlist-item-prevs">
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
-          <span className="circle-prev"></span>
+          
         </div>
       </div>
     </Link>

@@ -17,8 +17,17 @@ router.post('/users/sign-in', userController.signIn);
 // Sign Up
 router.post('/users/sign-up',
   userController.validateUser,
-  userController.signUp,
-  userController.signIn
+  userController.signUp
+  // userController.signIn
 );
+
+// Lists
+router.post('/lists/create', userController.createList);
+router.post('/lists/update', userController.updateList);
+
+// Items
+router.post('/items/create', userController.createItem);
+router.post('/items/update', userController.updateItem);
+router.post('/items/delete', userController.deleteItem);
 
 module.exports = router;

@@ -1,0 +1,40 @@
+User
+  - email
+  - fName
+  - lName
+  - lists
+    - groupRef
+    - items
+      - itemRef
+    - archived
+      - boolean
+  - groups
+    - groupList
+      - groupRef
+    - invites
+      - groupRef
+  - items
+    - name
+      - String
+      - required
+    - desc
+      - String
+    - link
+    - imgs
+    - price
+    - desireRank
+      - minmax: 10
+    - exactness
+      - boolean
+    - listRef
+    - status
+  - resetPasswordToken
+  - resetPasswordExpires
+
+Groups
+  - name
+  - desc
+  - img
+  - users
+    - userRef
+  - lists

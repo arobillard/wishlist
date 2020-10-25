@@ -47,31 +47,33 @@ const SignUp = ({ setUser, errors, setErrors }) => {
             name="email"
             type="email"
             label="Email"
-            // required={true}
+            required={true}
           />
           <InputNotched
             name="fName"
             type="text"
             label="First Name"
             className="span-6"
-            // required={true}
+            required={true}
           />
           <InputNotched
             name="lName"
             type="text"
             label="Last Name"
             className="span-6"
-            // required={true}
+            required={true}
           />
           <InputNotched
             name="password"
             type="password"
             label="Password"
+            required={true}
           />
           <InputNotched
             name="password-confirm"
             type="password"
             label="Confirm Password"
+            required={true}
           />
           <Button
             className="secondary w-1-2"
