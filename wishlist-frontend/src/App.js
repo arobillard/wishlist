@@ -11,6 +11,9 @@ import WishListsPage from './pages/WishListsPage';
 import ListPage from './pages/ListPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import CreateWishList from './pages/CreateWishLIst';
+import CreateItem from './pages/CreateItem';
+import EditItem from './pages/EditItem';
 
 const preLoadLocalUser = JSON.parse(localStorage.getItem('user'));
 
@@ -18,7 +21,13 @@ function App() {
 
   const [user, setUser] = useState(preLoadLocalUser);
   const [errors, setErrors] = useState([]);
-  const [page, setPage] = useState({})
+  const [page, setPage] = useState({
+    backBtn: false,
+    fab: {
+      icon: 'plus',
+      link: '/wishlists/add'
+    }
+  })
 
   useEffect(() => {
     const localUser = JSON.parse(localStorage.getItem('user'));
@@ -30,7 +39,6 @@ function App() {
   useEffect(() => {
     const localUser = JSON.parse(localStorage.getItem('user'));
     if (typeof diff(localUser, user) !== 'undefined') {
-      console.log('there are differences!')
       localStorage.setItem('user', JSON.stringify(user));
     };
   }, [user])
@@ -75,6 +83,9 @@ function App() {
           <Route path="/wishlists" exact render={({ match }) => (
             user ? <WishListsPage setPage={setPage} match={match} user={user} /> : <Redirect to="/" />
           )} />
+          <Route path="/wishlists/create" exact render={({ match, history }) => (
+            user ? <CreateWishList setPage={setPage} setErrors={setErrors} setUser={setUser} match={match} history={history} user={user} /> : <Redirect to="/" />
+          )} />
           <Route path="/wishlists/:list" render={({ match }) => (
             user ? <ListPage setPage={setPage} match={match} user={user} /> : <Redirect to="/" />
           )} />
@@ -84,10 +95,16 @@ function App() {
           <Route exact path="/users/:user" render={({ match }) => (
             user ? <UserPage setPage={setPage} match={match} user={user} signOut={signOut} /> : <Redirect to="/" />
           )} />
-          <Route path="/users/:user/items/:item" render={({ match }) => (
-            user ? <ItemPage setPage={setPage} match={match} user={user} signOut={signOut} /> : <Redirect to="/" />
+          <Route path="/users/:user/items/create" render={({ match, history }) => (
+            user ? <CreateItem setPage={setPage} setErrors={setErrors} setUser={setUser} match={match} history={history} user={user} /> : <Redirect to="/" />
           )} />
-          <Route coomponent={NotFound} />
+          <Route path="/users/:user/items/:item/edit" render={({ match, history }) => (
+            user ? <EditItem setPage={setPage} errors={errors} setErrors={setErrors} setUser={setUser} match={match} history={history} user={user} /> : <Redirect to="/" />
+          )} />
+          <Route path="/users/:user/items/:item" render={({ match, history }) => (
+            user ? <ItemPage setPage={setPage} match={match} history={history} user={user} setErrors={setErrors} setUser={setUser} /> : <Redirect to="/" />
+          )} />
+          <Route component={NotFound} />
         </Switch>
       </main>
     </BrowserRouter>

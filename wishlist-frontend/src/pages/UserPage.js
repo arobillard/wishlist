@@ -1,30 +1,17 @@
 import React, { useEffect } from 'react';
 import Button from '../components/buttons/Button';
 
-const UserPage = ({ match, signOut, user }) => {
+const UserPage = ({ match, signOut, user, setPage }) => {
 
   useEffect(() => {
-    // setUser(match.params.user);
-    // const fetchData = async () => {
-    //   fetch(`/api/test`)
-    //     .then((res) => {
-    //       if(res.ok) {
-    //         return res.json();
-    //       } else {
-    //         throw new Error('Didn\' work!')
-    //       }
-    //     })
-    //     .then((resData) => {
-    //       setData(resData);
-    //       console.log('resData');
-    //       console.log(resData);
-    //     })
-    //     .catch((err) => {
-    //       console.log(('ERROR: ', err.message));
-    //     })
-    // }
-    // fetchData();
-  }, [match])
+    setPage({
+      backBtn: true,
+      fab: {
+        icon: 'edit',
+        link: `/users/${match.params.user}/edit`
+      }
+    })
+  }, [match.params.user, setPage])
 
   return(
     <>

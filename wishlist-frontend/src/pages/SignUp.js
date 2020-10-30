@@ -77,7 +77,7 @@ const SignUp = ({ setUser, errors, setErrors }) => {
           />
           <Button
             className="secondary w-1-2"
-            text="Sign In"
+            text="Sign Up"
             type="submit"
           />
           <div>Have an account? <Link to='/'>Sign In.</Link></div>

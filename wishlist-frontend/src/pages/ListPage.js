@@ -10,8 +10,11 @@ const ListPage = ({ match, user, setPage }) => {
   useEffect(() => {
 
     setPage({
-      current: `/wishlist/${match.params.list}`,
-      prev: '/wishlists'
+      backBtn: true,
+      fab: {
+        icon: 'plus',
+        link: `/users/${user._id}/items/create`
+      }
     })
 
     const thisList = user.lists.find(aList => aList._id === match.params.list);

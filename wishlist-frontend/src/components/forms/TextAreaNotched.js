@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const InputNotched = ({ name, type, label, required, defaultValue, className }) => {
+const TextAreaNotched = ({ name, label, required, defaultValue, className }) => {
 
   const [valid, setValid] = useState(false)
 
@@ -15,26 +15,21 @@ const InputNotched = ({ name, type, label, required, defaultValue, className }) 
     value ? setValid(true) : setValid(false);
   }
 
-  return(
+  return (
     <div className={`form-unit input-notched ${className}`}>
-      <input
-        onChange={checkValid}
+      <textarea
         id={name}
         name={name}
-        type={type}
-        data-valid={valid}
         required={required}
+        data-valid={valid}
+        onChange={checkValid}
         defaultValue={defaultValue ? defaultValue : null}
-      />
+      >
+      </textarea>
       <div className="notched-wrap">
         <div className="notched-pre"></div>
         <div className="notched-label">
-          <label
-            className="label-basic"
-            htmlFor={name}
-          >
-            {label}
-          </label>
+          <label className="label-basic" htmlFor={name}>{label}</label>
         </div>
         <div className="notched-post"></div>
       </div>
@@ -42,4 +37,4 @@ const InputNotched = ({ name, type, label, required, defaultValue, className }) 
   )
 }
 
-export default InputNotched;
+export default TextAreaNotched;

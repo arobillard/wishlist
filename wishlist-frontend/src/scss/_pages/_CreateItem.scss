@@ -1,0 +1,8 @@
+.form-create-item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  > * {
+    grid-column: span 12;
+  }
+}

@@ -4,7 +4,11 @@ const GroupsPage = ({ match, setPage }) => {
 
   useEffect(() => {
     setPage({
-      current: `/groups`,
+      backBtn: false,
+      fab: {
+        icon: 'plus',
+        link: '/groups/add'
+      }
     })
   }, [setPage])
 

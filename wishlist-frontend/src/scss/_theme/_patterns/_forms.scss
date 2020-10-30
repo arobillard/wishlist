@@ -4,7 +4,8 @@ input {
 }
 
 input:not([type="radio"]),
-textarea {
+textarea,
+select {
   display: block;
   width: 100%;
   padding: calc(.75rem * var(--line-height)) calc(.5rem * var(--line-height));
@@ -65,7 +66,7 @@ textarea {
     }
   }
   textarea + .notched-wrap .notched-label label {
-    top: calc(.25rem * var(--line-height));
+    top: calc(.75rem * var(--line-height));
     transform: translateY(0);
   }
   input:focus + .notched-wrap,
