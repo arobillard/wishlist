@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# archives
+_archive
+_wishlist-backend
+_wishlist-frontend
+
 # dependencies
 node_modules
 /.pnp
