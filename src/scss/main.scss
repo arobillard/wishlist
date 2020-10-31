@@ -1,8 +1,6 @@
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i,800,800i&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '_utilities/utilities';
 @import '_modules/modules';
-@import '_theme/theme';
-@import '_libraries/libraries';
+@import '_snippets/snippets';
+@import '_patterns/patterns';
 @import '_pages/pages';
-
+@import 'common';
