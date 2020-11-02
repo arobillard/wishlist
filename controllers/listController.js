@@ -3,6 +3,15 @@ const List = mongoose.model('List');
 const expVal = require('express-validator');
 const { runValidation } = require('../handlers/errorHandlers');
 
+exports.getAllLists = async (req, res) => {
+  try {
+    const lists = await List.find();
+    res.json(lists);
+  } catch (err) {
+    res.status(500).json({ err: "Could not find lists" })
+  }
+}
+
 exports.validateList = [
   expVal.body('name', 'Please supply an list name').exists().trim(),
   expVal.body('desc').trim()

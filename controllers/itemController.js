@@ -3,6 +3,15 @@ const Item = mongoose.model('Item');
 const expVal = require('express-validator');
 const { runValidation } = require('../handlers/errorHandlers');
 
+exports.getAllItems = async (req, res) => {
+  try {
+    const items = await Item.find();
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ err: "Could not find items" })
+  }
+}
+
 exports.validateItem = [
   expVal.body('name', 'Please supply an item name').exists().trim(),
   expVal.body('desc').trim(),

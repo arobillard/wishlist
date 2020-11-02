@@ -3,6 +3,15 @@ const Group = mongoose.model('Group');
 const expVal = require('express-validator');
 const { runValidation } = require('../handlers/errorHandlers');
 
+exports.getAllGroups = async (req, res) => {
+  try {
+    const groups = await Group.find();
+    res.json(groups);
+  } catch (err) {
+    res.status(500).json({ err: "Could not find groups" })
+  }
+}
+
 exports.validateGroup = [
   expVal.body('name', 'Please supply an list name').exists().trim(),
   expVal.body('desc').trim(),

@@ -10,6 +10,15 @@ exports.valTest = (req, res) => {
   res.json({ body: req.body, errs: errs.errors})
 }
 
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ err: "Could not find users" })
+  }
+}
+
 //////// Sign Up
 
 exports.validateSignUp = [
@@ -56,14 +65,18 @@ exports.validateSignIn = [
 exports.signIn = async (req, res) => {
   runValidation(req, res, async () => {
     const user = await User.findOne({ email: req.body.email });
-    bcrypt.compare(req.body.password, user.password)
-      .then(function(result) {
-        if (result) {
-          res.json(user)
-        } else {
-          res.json({ err: "Invalid email or password."})
-        }
-      })
+    if (user) {
+      bcrypt.compare(req.body.password, user.password)
+        .then(function(result) {
+          if (result) {
+            res.json(user)
+          } else {
+            res.json({ err: "Invalid email or password."})
+          }
+        })
+    } else {
+      res.json({ err: "Email or password invalid." })
+    }
   });
 }
 
