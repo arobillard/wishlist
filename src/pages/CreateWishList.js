@@ -18,7 +18,8 @@ const CreateWishList = ({ user, setPgSettings, stateFns }) => {
       },
       fab: {
         link: null
-      }
+      },
+      pgClass: 'create-wishlist'
     })
   }, [setPgSettings])
 

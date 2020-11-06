@@ -30,7 +30,8 @@ function App() {
     fab: {
       icon: 'plus',
       link: '/wishlists/create'
-    }
+    },
+    pgClass: 'sign-in-up'
   })
 
   const stateFns = {
@@ -49,14 +50,14 @@ function App() {
   return (
     <BrowserRouter>
       {user && <Header user={user} pgSettings={pgSettings} />}
-      <main id="main" role="main">
+      <main id="main" className={pgSettings.pgClass} role="main">
         {flashes.length ? <FlashList flashes={flashes} setFlashes={setFlashes} /> : null}
         <Switch>
           <Route path="/" exact render={() => (
-            user ? <Redirect to="/wishlists" /> : <SignIn stateFns={stateFns} />
+            user ? <Redirect to="/wishlists" /> : <SignIn stateFns={stateFns} setPgSettings={setPgSettings} />
           )} />
           <Route path="/sign-up" exact render={() => (
-            user ? <Redirect to="/wishlists" /> : <SignUp stateFns={stateFns} />
+            user ? <Redirect to="/wishlists" /> : <SignUp stateFns={stateFns} setPgSettings={setPgSettings} />
           )} />
           <Route exact path="/users/:user" render={({ match }) => (
             user ? <User match={match} stateFns={stateFns} user={user} setPgSettings={setPgSettings} /> : <Redirect to="/" />

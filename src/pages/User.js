@@ -19,7 +19,8 @@ const User = ({ match, stateFns, user, setPgSettings }) => {
       },
       fab: {
         link: null
-      }
+      },
+      pgClass: 'user'
     })
   }, [setPgSettings, match.params.user])
 

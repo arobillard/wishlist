@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/buttons/Button';
 import InputNotched from '../components/forms/InputNotched';
 import { signInUp } from '../utils/userServices';
 
-const SignIn = ({ stateFns }) => {
+const SignIn = ({ stateFns, setPgSettings }) => {
+
+  useEffect(() => {
+    setPgSettings({
+      pgClass: 'sign-in-up'
+    });
+  }, [setPgSettings])
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/buttons/Button';
 import InputNotched from '../components/forms/InputNotched';
 import { signInUp } from '../utils/userServices';
 
-const SignUp = ({ stateFns }) => {
+const SignUp = ({ stateFns, setPgSettings }) => {
+
+  useEffect(() => {
+    setPgSettings({
+      pgClass: 'sign-in-up'
+    });
+  }, [setPgSettings])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,6 +62,7 @@ const SignUp = ({ stateFns }) => {
             type="password"
             label="Password"
             required={true}
+            newPassword={true}
           />
           <InputNotched
             name="password-confirm"

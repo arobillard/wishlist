@@ -10,7 +10,7 @@ const Header = ({ user, pgSettings }) => {
   const history = useHistory();
 
   const fabIcon = () => {
-    if (pgSettings.fab.icon === 'edit') {
+    if (pgSettings.fab && pgSettings.fab.icon === 'edit') {
       return <Create />
     } else if (pgSettings.fab.icon === 'save') {
       return <Save />
@@ -39,9 +39,9 @@ const Header = ({ user, pgSettings }) => {
     <header className="masthead">
       {pgSettings.backBtn && backArrow()}
       <strong className="logo">Wishlist</strong>
-      <NavBar className={pgSettings.fab.link === null ? 'no-fab' : null} />
+      <NavBar className={pgSettings.fab && pgSettings.fab.link === null ? 'no-fab' : null} />
       <AccountLink user={user} />
-      {pgSettings.fab.link
+      {pgSettings.fab && pgSettings.fab.link
       ?
       <Link className="fab fab-positioning no-btn" to={pgSettings.fab.link}>
         {fabIcon()}

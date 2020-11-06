@@ -1,6 +1,7 @@
 .sign-in-up-wrap {
   height: 100vh;
   display: grid;
+  padding: 2rem 0;
   grid-template-columns: 1fr repeat(12, min(2.5em, 8.3333%)) 1fr;
   grid-template-rows: 1fr;
   align-items: center;

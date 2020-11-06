@@ -27,7 +27,8 @@ const Item = ({ match, user, stateFns, setPgSettings, listId }) => {
       fab: {
         link: `/items/${match.params.id}/edit`,
         icon: 'edit'
-      }
+      },
+      pgClass: 'item'
     })
   }, [setPgSettings, match.params.id, listId, thisItem]);
 

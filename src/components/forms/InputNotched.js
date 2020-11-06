@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const InputNotched = ({ name, type, label, required, defaultValue, className }) => {
+const InputNotched = ({ name, type, label, required, defaultValue, className, newPassword }) => {
 
   const [valid, setValid] = useState(false)
 
@@ -15,6 +15,14 @@ const InputNotched = ({ name, type, label, required, defaultValue, className }) 
     value ? setValid(true) : setValid(false);
   }
 
+  const autocomplete = () => {
+    if (newPassword) {
+      const value = 'new-password'
+      return value;
+    }
+    return null;
+  }
+
   return(
     <div className={`form-unit input-notched ${className}`}>
       <input
@@ -25,6 +33,7 @@ const InputNotched = ({ name, type, label, required, defaultValue, className }) 
         data-valid={valid}
         required={required}
         defaultValue={defaultValue ? defaultValue : null}
+        autoComplete={autocomplete()}
       />
       <div className="notched-wrap">
         <div className="notched-pre"></div>

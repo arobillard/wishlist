@@ -387,6 +387,9 @@ main {
   display: grid;
   grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
 }
+main.sign-in-up {
+  margin: 0;
+}
 
 * {
   grid-column: 2/span 7;
@@ -1999,6 +2002,7 @@ legend {
 .sign-in-up-wrap {
   height: 100vh;
   display: grid;
+  padding: 2rem 0;
   grid-template-columns: 1fr repeat(12, min(2.5em, 8.3333%)) 1fr;
   grid-template-rows: 1fr;
   align-items: center;

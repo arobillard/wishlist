@@ -27,7 +27,8 @@ const WishLists = ({ user, setPgSettings }) => {
       fab: {
         link: '/wishlists/create',
         icon: 'plus'
-      }
+      },
+      pgClass: 'wishlists'
     })
   }, [setPgSettings]);
 

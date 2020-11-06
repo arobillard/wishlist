@@ -102,6 +102,9 @@ main {
   grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
   // column-gap: 1rem;
   // align-items: flex-start;
+  &.sign-in-up {
+    margin: 0;
+  }
 }
 
 * {

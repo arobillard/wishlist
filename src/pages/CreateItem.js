@@ -18,7 +18,8 @@ const CreateItem = ({ user, stateFns, setPgSettings, listId }) => {
       },
       fab: {
         link: null
-      }
+      },
+      pgClass: 'create-item'
     })
   }, [setPgSettings])
 

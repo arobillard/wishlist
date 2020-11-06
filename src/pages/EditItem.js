@@ -17,7 +17,8 @@ const EditItem = ({ match, user, stateFns, setPgSettings, listId }) => {
       },
       fab: {
         link: null
-      }
+      },
+      pgClass: 'edit-item'
     })
   }, [setPgSettings, match.params.id])
 

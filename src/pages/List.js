@@ -20,7 +20,8 @@ const List = ({ match, stateFns, setPgSettings }) => {
       fab: {
         icon: 'add',
         link: '/items/create'
-      }
+      },
+      pgClass: 'list'
     });
   }, [setPgSettings, match.params.list])
 
