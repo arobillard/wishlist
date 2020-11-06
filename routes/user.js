@@ -16,5 +16,8 @@ router.post('/:id',
   userController.validateEditUser,
   userController.editUser
 );
+router.post('/:userId/add-list/:listId', userController.addList);
+router.post('/:userId/add-item/:itemId', userController.addItem);
+router.post('/:userId/remove-item/:itemId', userController.removeItem);
 
 module.exports = router;

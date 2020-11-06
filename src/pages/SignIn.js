@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/buttons/Button';
 import InputNotched from '../components/forms/InputNotched';
-import { signIn } from '../utils/userServices';
+import { signInUp } from '../utils/userServices';
 
 const SignIn = ({ stateFns }) => {
 
@@ -12,7 +12,7 @@ const SignIn = ({ stateFns }) => {
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value
     }
-    signIn(userInfo, stateFns.setFlashes, stateFns.setUser );
+    signInUp('sign-in', userInfo, stateFns);
   }
 
   return(

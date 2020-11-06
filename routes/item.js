@@ -19,5 +19,7 @@ router.post('/:id/edit/',
 router.post('/:id/delete/',
   itemController.deleteItem
 );
+router.post('/collection/', itemController.getItemCollection);
+
 
 module.exports = router;

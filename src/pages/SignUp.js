@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/buttons/Button';
 import InputNotched from '../components/forms/InputNotched';
-import { signUp } from '../utils/userServices';
+import { signInUp } from '../utils/userServices';
 
 const SignUp = ({ stateFns }) => {
 
@@ -16,7 +16,7 @@ const SignUp = ({ stateFns }) => {
       'password-confirm': e.currentTarget['password-confirm'].value
     }
     if (e.currentTarget['password-confirm'].value === e.currentTarget.password.value) {
-      signUp(newUser, stateFns.setFlashes, stateFns.setUser);
+      signInUp('sign-up', newUser, stateFns);
     } else {
       stateFns.setFlashes([{
         msg: 'Passwords must match.',

@@ -56,3 +56,43 @@ exports.deleteList = async (req, res) => {
     }
   });
 }
+
+exports.getListCollection = async (req, res) => {
+  try {
+    const lists = await List.find({ '_id': { $in: [...req.body] } })
+    res.json(lists);
+  } catch {
+    res.json({ err: "Unable to find lists." })
+  }
+}
+
+exports.addItem = async (req, res) => {
+  try {
+    const list = await List.findById(req.params.listId);
+    if (!list.items.includes(req.params.itemId)) {
+      list.items.push(req.params.itemId);
+      let updatedUser = await list.save();
+      res.json(updatedUser);
+    } else {
+      res.json({ err: 'Item is already on this list!' })
+    }
+  } catch (err) {
+    res.status(500).json({ err: "Could not add item to list." })
+  }
+}
+
+exports.removeItem = async (req, res) => {
+  try {
+    const list = await List.findById(req.params.listId);
+    if (list.items.includes(req.params.itemId)) {
+      const index = list.items.indexOf(req.params.itemId)
+      list.items.splice(index, index + 1);
+      let updatedList = await list.save();
+      res.json(updatedList);
+    } else {
+      res.json({ err: 'List does not have this item!' })
+    }
+  } catch (err) {
+    res.status(500).json({ err: "Could not remove item from list." })
+  }
+}

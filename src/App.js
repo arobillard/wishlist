@@ -3,29 +3,40 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { diff } from 'deep-diff';
 
-// Helpers
-import { handleErrorMsg } from './handlers/errorHandlers';
-
 // Pages
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import WishLists from './pages/WishLists';
 import User from './pages/User';
+import WishLists from './pages/WishLists';
+import CreateWishList from './pages/CreateWishList';
+import List from './pages/List';
+import CreateItem from './pages/CreateItem';
+import Item from './pages/Item';
+import EditItem from './pages/EditItem';
 
 // Components
 import Header from './components/Header';
 import FlashList from './components/FlashList';
 
 const preLoadLocalUser = JSON.parse(localStorage.getItem('user'));
+const preLoadLocalListId = JSON.parse(localStorage.getItem('listId'));
 
 function App() {
 
   const [user, setUser] = useState(preLoadLocalUser);
+  const [listId, setListId] = useState(preLoadLocalListId);
   const [flashes, setFlashes] = useState([]);
+  const [pgSettings, setPgSettings] = useState({
+    fab: {
+      icon: 'plus',
+      link: '/wishlists/create'
+    }
+  })
 
   const stateFns = {
     setUser,
-    setFlashes
+    setFlashes,
+    setListId
   }
 
   useEffect(() => {
@@ -35,35 +46,9 @@ function App() {
     };
   }, [user])
 
-  // const signIn = async (user) => {
-  //   await fetch('/api/users/sign-in', {
-  //     method: 'post',
-  //     body: JSON.stringify(user),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then(response => {
-  //     if (response.ok) {
-  //       return response.json();
-  //     } else {
-  //       throw new Error('Error:', response)
-  //     }
-  //   })
-  //   .then(data => {
-  //     const err = handleErrorMsg(data, setFlashes);
-  //     if (!err) {
-  //       setUser(data);
-  //     }
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  // }
-
   return (
     <BrowserRouter>
-      {user && <Header user={user} />}
+      {user && <Header user={user} pgSettings={pgSettings} />}
       <main id="main" role="main">
         {flashes.length ? <FlashList flashes={flashes} setFlashes={setFlashes} /> : null}
         <Switch>
@@ -73,11 +58,26 @@ function App() {
           <Route path="/sign-up" exact render={() => (
             user ? <Redirect to="/wishlists" /> : <SignUp stateFns={stateFns} />
           )} />
-          <Route path="/wishlists" exact render={() => (
-            user ? <WishLists /> : <Redirect to="/" />
-          )} />
           <Route exact path="/users/:user" render={({ match }) => (
-            user ? <User match={match} stateFns={stateFns} /> : <Redirect to="/" />
+            user ? <User match={match} stateFns={stateFns} user={user} setPgSettings={setPgSettings} /> : <Redirect to="/" />
+          )} />
+          <Route path="/wishlists" exact render={() => (
+            user ? <WishLists user={user} stateFns={stateFns} setPgSettings={setPgSettings} /> : <Redirect to="/" />
+          )} />
+          <Route path="/wishlists/create" exact render={() => (
+            user ? <CreateWishList user={user} stateFns={stateFns} setPgSettings={setPgSettings} /> : <Redirect to="/" />
+          )} />
+          <Route path="/wishlists/:list" exact render={({ match }) =>(
+            user ? <List match={match} stateFns={stateFns} setPgSettings={setPgSettings} /> : <Redirect to="/" />
+          )} />
+          <Route path="/items/create" exact render={() => (
+            user ? <CreateItem user={user} stateFns={stateFns} setPgSettings={setPgSettings} listId={listId} /> : <Redirect to="/" />
+          )} />
+          <Route path="/items/:id" exact render={({ match }) => (
+            user ? <Item match={match} user={user} stateFns={stateFns} setPgSettings={setPgSettings} listId={listId} /> : <Redirect to="/" />
+          )} />
+          <Route path="/items/:id/edit" exact render={({ match }) => (
+            user ? <EditItem match={match} user={user} stateFns={stateFns} setPgSettings={setPgSettings} listId={listId} /> : <Redirect to="/" />
           )} />
         </Switch>
       </main>

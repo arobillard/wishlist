@@ -117,3 +117,7 @@ main {
 .col-2-center {
   grid-column: 4 / span 3!important;
 }
+
+.span-6 {
+  grid-column: span 6;
+}

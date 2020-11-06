@@ -15,7 +15,7 @@ exports.getAllItems = async (req, res) => {
 exports.validateItem = [
   expVal.body('name', 'Please supply an item name').exists().trim(),
   expVal.body('desc').trim(),
-  // expVal.body('url', 'Please supply a valid URL').trim().isURL(),
+  expVal.body('url', 'Please supply a valid URL').trim().isURL(),
   expVal.body('price', 'Please supply a valid price').trim().isCurrency()
 ]
 
@@ -29,7 +29,7 @@ exports.createItem = (req, res) => {
       price: req.body.price,
       desireRank: req.body.desireRank,
       exactness: req.body.exactness,
-      listRef: req.body.listRef
+      listId: req.body.listId
     });
     let newItem = await item.save();
     res.json(newItem);
@@ -65,3 +65,11 @@ exports.deleteItem = async (req, res) => {
   });
 }
 
+exports.getItemCollection = async (req, res) => {
+  try {
+    const items = await Item.find({ '_id': { $in: [...req.body] } })
+    res.json(items);
+  } catch {
+    res.json({ err: "Unable to find items." })
+  }
+}

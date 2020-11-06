@@ -26,12 +26,12 @@ button:not(.no-btn),
   }
 }
 
-.btn + .btn,
-.btn + button,
-button + .btn,
-button + button {
-  margin-left: calc(.5rem * var(--line-height));
-}
+// .btn + .btn,
+// .btn + button,
+// button + .btn,
+// button + button {
+//   margin-left: calc(.5rem * var(--line-height));
+// }
 
 .btn.outline {
   background-color: transparent;

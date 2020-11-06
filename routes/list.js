@@ -15,5 +15,8 @@ router.post('/:id/edit',
 router.post('/:id/delete', 
   listController.deleteList
 );
+router.post('/collection/', listController.getListCollection);
+router.post('/:listId/add-item/:itemId', listController.addItem);
+router.post('/:listId/remove-item/:itemId', listController.removeItem);
 
 module.exports = router;

@@ -10,6 +10,7 @@
     align-items: center;
     padding: 0 1rem;
     background-color: var(--color-grey-pale);
+    z-index: 10000;
     .nav {
       grid-area: navbar;
       position: fixed;
@@ -86,6 +87,7 @@
       bottom: 3.5rem;
       left: 50%;
       transform: translate(-50%, 50%);
+      z-index: 10000;
     }
   }
   .logo {

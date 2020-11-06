@@ -114,3 +114,49 @@ exports.editUser = async (req, res) => {
   });
 
 }
+
+exports.addList = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user.lists.includes(req.params.listId)) {
+      user.lists.push(req.params.listId);
+      let updatedUser = await user.save();
+      res.json(updatedUser);
+    } else {
+      res.json({ err: 'User has already added this list!' })
+    }
+  } catch (err) {
+    res.status(500).json({ err: "Could not add list to user." })
+  }
+}
+
+exports.addItem = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user.items.includes(req.params.itemId)) {
+      user.items.push(req.params.itemId);
+      let updatedUser = await user.save();
+      res.json(updatedUser);
+    } else {
+      res.json({ err: 'User has already added this item!' })
+    }
+  } catch (err) {
+    res.status(500).json({ err: "Could not add item to user." })
+  }
+}
+
+exports.removeItem = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (user.items.includes(req.params.itemId)) {
+      const index = user.items.indexOf(req.params.itemId)
+      user.items.splice(index, index + 1);
+      let updatedUser = await user.save();
+      res.json(updatedUser);
+    } else {
+      res.json({ err: 'User does not have this item!' })
+    }
+  } catch (err) {
+    res.status(500).json({ err: "Could not remove item from user." })
+  }
+}

@@ -4,7 +4,7 @@ import { Close } from '@material-ui/icons';
 const FlashList = ({ flashes, setFlashes }) => {
 
   return(
-    <div className="error-list">
+    <div className="flashes-list">
       {flashes.map((flash, key) => {
 
         const clear = () => {
@@ -13,6 +13,10 @@ const FlashList = ({ flashes, setFlashes }) => {
             ...flashes.slice(flashes.indexOf(flash) + 1, flashes.length)
           ];
           setFlashes(flashList);
+        }
+
+        if (flash.type === 'success') {
+          setTimeout(clear, 2000);
         }
 
         return (

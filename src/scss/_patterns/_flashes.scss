@@ -1,18 +1,17 @@
-.error-list {
+.flashes-list {
   position: fixed;
-  top: 0;
+  top: 3rem;
   left: 0;
   width: 100%;
   padding: 1rem;
-  .error {
-    background-color: #a00;
+  .flash {
     color: #fff;
     text-align: center;
     padding: .5rem;
     position: relative;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    + .error {
+    + .flash {
       margin-top: .5rem;
     }
     button {
@@ -27,6 +26,12 @@
         width: 1rem;
         height: 1rem;
       }
+    }
+    &.error {
+      background-color: #a00;
+    }
+    &.success {
+      background-color: #0a0;
     }
   }
 }
